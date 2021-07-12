@@ -7,12 +7,12 @@ from openpyxl import Workbook
 core_url = 'https://www.ihk-lehrstellenboerse.de'
 wb = Workbook()
 
-dest_filename = 'iwex.xlsx'
+dest_filename = 'iwex-v3.xlsx'
 
 ws = wb.active
 ws.title = 'Information'
 counter = 1
-for i in range(0, 2080):
+for i in range(2080, 2827):
     shared_url = f'https://www.ihk-lehrstellenboerse.de/angebote/suche?hitsPerPage=10&page={i}&sortColumn=-1&sortDir=asc&query=Gib+Deinen+Wunschberuf+ein&organisationName=Unternehmen+eingeben&status=1&mode=0&dateTypeSelection=LASTCHANGED_DATE&thisYear=true&nextYear=true&afterNextYear=true&distance=0'
     response = requests.get(shared_url)
     soup = BeautifulSoup(response.text, 'html.parser')
